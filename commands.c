@@ -1917,8 +1917,9 @@ int
 nreboot(void)
 {
 	printf ("%% Reboot initiated\n");
-	if (reboot (RB_AUTOBOOT) == -1)
+	if (reboot (RB_AUTOBOOT) == -1) {
 		printf("%% reboot: RB_AUTOBOOT: %s\n", strerror(errno));
+        }
 	return(0);
 }
                
@@ -1926,8 +1927,9 @@ int
 halt(void)
 {
 	printf ("%% Shutdown initiated\n");
-	if (reboot (RB_HALT) == -1)
+	if (reboot (RB_HALT) == -1) {
 		printf("%% reboot: RB_HALT: %s\n", strerror(errno));
+        }
 	return(0);
 }
 
